@@ -26,7 +26,10 @@ public abstract class Unit : MonoBehaviour,
 
     private void Start()
     {
-
+        if(mainmanager.data!=null)
+        {
+            SetColor(mainmanager.data.gamecolor);
+        }
     }
 
     void SetColor(Color c)
