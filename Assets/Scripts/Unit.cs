@@ -26,7 +26,7 @@ public abstract class Unit : MonoBehaviour,
 
     private void Start()
     {
-        if(mainmanager.data!=null)
+        if (mainmanager.data != null)
         {
             SetColor(mainmanager.data.gamecolor);
         }
@@ -95,6 +95,7 @@ public abstract class Unit : MonoBehaviour,
 
     public virtual void GetContent(ref List<Building.InventoryEntry> content)
     {
-        
+
     }
+    
 }
