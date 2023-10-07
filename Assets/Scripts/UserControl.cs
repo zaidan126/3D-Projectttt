@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.AccessControl;
 using UnityEngine;
 
 /// <summary>
@@ -19,7 +20,18 @@ public class UserControl : MonoBehaviour
     {
         Marker.SetActive(false);
     }
-
+    public void handle_selection()
+    {
+        var ray=GameCamera.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit))
+        {
+            var unit = hit.collider.GetComponentInParent<Unit>();
+            m_Selected = unit;
+            var uiinfo=hit.collider.GetComponentInParent<UIMainScene.IUIInfoContent>();
+            UIMainScene.Instance.SetNewInfoContent(uiinfo);
+        }
+    }
     private void Update()
     {
         Vector2 move = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
