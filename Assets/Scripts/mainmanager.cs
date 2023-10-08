@@ -6,11 +6,11 @@ using System.IO;
 
 public class mainmanager : MonoBehaviour
 {
-    public static mainmanager data;
+    public static mainmanager data { get; private set; }
     public Color gamecolor;
     private void Awake()
     {
-        if(data != null)
+        if (data != null)
         {
             Destroy(gameObject);
             return;
@@ -42,4 +42,5 @@ public class mainmanager : MonoBehaviour
             gamecolor = data.Savecolor;
         }
     }
+    
 }
